@@ -10,8 +10,16 @@
 	<title></title>
 </head>
 <body>
- <script>
-    cats: [{
+	<h1>Please Click the cat</h1>
+ <ul id="cat-list">
+ 	
+ </ul>
+ <img src="" alt="cute cat" id="cat-image">
+
+ <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
+    <script>
+    	const cats=[{
 name: 'Cat A',
 clickCount: 0,
 url: 'https://lh5.ggpht.com/LfjkdmOKkGLvCt-VuRlWGjAjXqTBrPjRsokTNKBtCh8IFPRetGaXIpTQGE2e7ZCUaG2azKNkz38KkbM_emA=s0#w=640&h=454'
@@ -26,7 +34,7 @@ name: 'Cat C',
 clickCount: 0,
 url: 'https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496'
 },
-{
+{//
 name: 'Cat D',
 clickCount: 0,
 url: 'https://d17h27t6h515a5.cloudfront.net/topher/2017/March/58b8af2f_nd001-cat-clicker/nd001-cat-clicker.jpg'
@@ -35,8 +43,25 @@ url: 'https://d17h27t6h515a5.cloudfront.net/topher/2017/March/58b8af2f_nd001-cat
 name: 'Cat E',
 clickCount: 0,
 url: 'https://uploads.scratch.mit.edu/users/avatars/1385/1878.png'
-}]
+}];
 
-  </script>
+for(let cat of cats){
+console.log(cat.name);
+let ig=document.querySelector("#cat-image").src=`${cat.url}`;
+document.querySelector("#cat-list").innerHTML +=`<li>${cat.name}</li>`;
+}
+let ui=document.querySelectorAll('#cat-list > li'),click;
+
+	for (var i =0; i <ui.length; i++) {
+		click= ui[i];
+	    click.addEventListener('click', function() {
+         console.log("here");
+	});
+}
+
+
+ 	
+
+ </script>
 </body>
 </html>
